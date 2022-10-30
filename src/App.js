@@ -1,4 +1,6 @@
 import "./App.css";
+import { RecommendedCard } from "./RecommendedCard";
+import { TrendingCard } from "./TrendingCard";
 
 function App() {
   return (
@@ -29,251 +31,25 @@ function App() {
 
         <section className="trending">
           <h2>Trending</h2>
-
           <div className="trending-carousel">
-            <div className="trending-card">
-              <div className="bookmark-container">
-                <img
-                  className="bookmark"
-                  src="/assets/icon-bookmark-empty.svg"
-                  alt="Bookmark"
-                />
-              </div>
-              <div className="movie-info">
-                <div className="row">
-                  <p>2019</p>
-                  <p>•</p>
-                  <img src="/assets/icon-category-movie.svg" alt="" />
-                  <p>Movie</p>
-                </div>
-                <h1>Beyond Earth</h1>
-              </div>
-              <div className="rating">PG</div>
-            </div>
-
-            <div className="trending-card">
-              <div className="bookmark-container">
-                <img
-                  className="bookmark"
-                  src="/assets/icon-bookmark-empty.svg"
-                  alt="Bookmark"
-                />
-              </div>
-              <div className="movie-info">
-                <div className="row">
-                  <p>2019</p>
-                  <p>•</p>
-                  <img src="/assets/icon-category-movie.svg" alt="" />
-                  <p>Movie</p>
-                </div>
-                <h1>Beyond Earth</h1>
-              </div>
-              <div className="rating">PG</div>
-            </div>
-
-            <div className="trending-card">
-              <div className="bookmark-container">
-                <img
-                  className="bookmark"
-                  src="/assets/icon-bookmark-empty.svg"
-                  alt="Bookmark"
-                />
-              </div>
-              <div className="movie-info">
-                <div className="row">
-                  <p>2019</p>
-                  <p>•</p>
-                  <img src="/assets/icon-category-movie.svg" alt="" />
-                  <p>Movie</p>
-                </div>
-                <h1>Beyond Earth</h1>
-              </div>
-              <div className="rating">PG</div>
-            </div>
-
-            <div className="trending-card">
-              <div className="bookmark-container">
-                <img
-                  className="bookmark"
-                  src="/assets/icon-bookmark-empty.svg"
-                  alt="Bookmark"
-                />
-              </div>
-              <div className="movie-info">
-                <div className="row">
-                  <p>2019</p>
-                  <p>•</p>
-                  <img src="/assets/icon-category-movie.svg" alt="" />
-                  <p>Movie</p>
-                </div>
-                <h1>Beyond Earth</h1>
-              </div>
-              <div className="rating">PG</div>
-            </div>
-
-            <div className="trending-card">
-              <div className="bookmark-container">
-                <img
-                  className="bookmark"
-                  src="/assets/icon-bookmark-empty.svg"
-                  alt="Bookmark"
-                />
-              </div>
-              <div className="movie-info">
-                <div className="row">
-                  <p>2019</p>
-                  <p>•</p>
-                  <img src="/assets/icon-category-movie.svg" alt="" />
-                  <p>Movie</p>
-                </div>
-                <h1>Beyond Earth</h1>
-              </div>
-              <div className="rating">PG</div>
-            </div>
+            <TrendingCard category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/below-echo/regular/medium.jpg" />
+            <TrendingCard category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/van-life/regular/medium.jpg" />
+            <TrendingCard category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/dogs/regular/medium.jpg" />
+            <TrendingCard category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/unresolved-cases/regular/medium.jpg" />
+            <TrendingCard category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/the-heiress/regular/medium.jpg" />
           </div>
         </section>
 
         <section className="recommended">
           <h2>Recommended for you</h2>
-
           <div className="recommended-container">
-            <div className="recommended-card">
-              <div className="recommended-thumbnail">
-                <div className="bookmark-container">
-                  <img
-                    className="bookmark"
-                    src="/assets/icon-bookmark-empty.svg"
-                    alt="Bookmark"
-                  />
-                </div>
-              </div>
-              <div className="recommended-movie-info">
-                <div className="row">
-                  <p>2019</p>
-                  <p>•</p>
-                  <img src="/assets/icon-category-movie.svg" alt="" />
-                  <p>Movie</p>
-                  <p>•</p>
-                  <p>E</p>
-                </div>
-                <h1>Beyond Earth</h1>
-              </div>
-            </div>
-
-            <div className="recommended-card">
-              <div className="recommended-thumbnail">
-                <div className="bookmark-container">
-                  <img
-                    className="bookmark"
-                    src="/assets/icon-bookmark-empty.svg"
-                    alt="Bookmark"
-                  />
-                </div>
-              </div>
-              <div className="recommended-movie-info">
-                <div className="row">
-                  <p>2019</p>
-                  <p>•</p>
-                  <img src="/assets/icon-category-movie.svg" alt="" />
-                  <p>Movie</p>
-                  <p>•</p>
-                  <p>E</p>
-                </div>
-                <h1>Beyond Earth</h1>
-              </div>
-            </div>
-
-            <div className="recommended-card">
-              <div className="recommended-thumbnail">
-                <div className="bookmark-container">
-                  <img
-                    className="bookmark"
-                    src="/assets/icon-bookmark-empty.svg"
-                    alt="Bookmark"
-                  />
-                </div>
-              </div>
-              <div className="recommended-movie-info">
-                <div className="row">
-                  <p>2019</p>
-                  <p>•</p>
-                  <img src="/assets/icon-category-movie.svg" alt="" />
-                  <p>Movie</p>
-                  <p>•</p>
-                  <p>E</p>
-                </div>
-                <h1>Beyond Earth</h1>
-              </div>
-            </div>
-
-            <div className="recommended-card">
-              <div className="recommended-thumbnail">
-                <div className="bookmark-container">
-                  <img
-                    className="bookmark"
-                    src="/assets/icon-bookmark-empty.svg"
-                    alt="Bookmark"
-                  />
-                </div>
-              </div>
-              <div className="recommended-movie-info">
-                <div className="row">
-                  <p>2019</p>
-                  <p>•</p>
-                  <img src="/assets/icon-category-movie.svg" alt="" />
-                  <p>Movie</p>
-                  <p>•</p>
-                  <p>E</p>
-                </div>
-                <h1>Beyond Earth</h1>
-              </div>
-            </div>
-
-            <div className="recommended-card">
-              <div className="recommended-thumbnail">
-                <div className="bookmark-container">
-                  <img
-                    className="bookmark"
-                    src="/assets/icon-bookmark-empty.svg"
-                    alt="Bookmark"
-                  />
-                </div>
-              </div>
-              <div className="recommended-movie-info">
-                <div className="row">
-                  <p>2019</p>
-                  <p>•</p>
-                  <img src="/assets/icon-category-movie.svg" alt="" />
-                  <p>Movie</p>
-                  <p>•</p>
-                  <p>E</p>
-                </div>
-                <h1>Beyond Earth</h1>
-              </div>
-            </div>
-
-            <div className="recommended-card">
-              <div className="recommended-thumbnail">
-                <div className="bookmark-container">
-                  <img
-                    className="bookmark"
-                    src="/assets/icon-bookmark-empty.svg"
-                    alt="Bookmark"
-                  />
-                </div>
-              </div>
-              <div className="recommended-movie-info">
-                <div className="row">
-                  <p>2019</p>
-                  <p>•</p>
-                  <img src="/assets/icon-category-movie.svg" alt="" />
-                  <p>Movie</p>
-                  <p>•</p>
-                  <p>E</p>
-                </div>
-                <h1>Beyond Earth</h1>
-              </div>
-            </div>
+            <RecommendedCard category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/1998/regular/medium.jpg" />
+            <RecommendedCard category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/asia-in-24-days/regular/medium.jpg" />
+            <RecommendedCard category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/bottom-gear/regular/medium.jpg" />
+            <RecommendedCard category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/mission-saturn/regular/medium.jpg" />
+            <RecommendedCard category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/no-land-beyond/regular/medium.jpg" />
+            <RecommendedCard category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/the-rockies/regular/medium.jpg" />
+            <RecommendedCard category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/the-tasty-tour/regular/medium.jpg" />
           </div>
         </section>
       </main>
