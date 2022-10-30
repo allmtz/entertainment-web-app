@@ -1,0 +1,160 @@
+:root {
+  --primary-color: #10141e;
+  --nav-color: #161d2f;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: var(--primary-color);
+  font-family: "Outfit", sans-serif;
+  color: white;
+}
+
+main {
+  padding: 0 0.5rem 0 0.5rem;
+}
+
+nav {
+  background-color: var(--nav-color);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+nav ul img {
+  margin-left: 1rem;
+}
+
+.row {
+  display: flex;
+}
+
+.avatar {
+  width: 40px;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+
+.search-section {
+  display: flex;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+
+.search-section input {
+  width: 100%;
+  background-color: var(--primary-color);
+  border: none;
+  color: #7f8287;
+  font-family: "Outfit", sans-serif;
+  font-size: 1rem;
+  outline: none;
+}
+
+.search-section input::placeholder {
+  color: #7f8287;
+}
+
+.trending-carousel {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+}
+
+.trending h2,
+.recommended h2 {
+  margin-top: 1rem;
+  font-weight: 100;
+}
+
+.trending-card {
+  border-radius: 10px;
+  position: relative;
+  min-width: 260px;
+  height: 200px;
+  background-image: url("assets/thumbnails/1998/regular/medium.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.bookmark-container,
+.rating {
+  padding: 0.4rem 0.7rem 0.4rem 0.7rem;
+  border-radius: 20px;
+  background-color: #3c45558f;
+}
+
+.bookmark-container {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+}
+
+.rating {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  font-weight: 100;
+}
+
+.movie-info {
+  position: absolute;
+  bottom: 0;
+  left: 1rem;
+  bottom: 1rem;
+  font-weight: 100;
+  color: #e0cfcfe7;
+}
+
+.recommended-movie-info .row,
+.movie-info .row {
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.movie-info h1 {
+  font-weight: 200;
+  color: white;
+}
+
+.recommended-thumbnail {
+  border-radius: 10px;
+}
+
+.recommended-card {
+  width: min-content;
+  margin-top: 0.5rem;
+}
+
+.recommended {
+  margin-top: 3rem;
+}
+.recommended-container {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-bottom: 4rem;
+}
+
+.recommended-thumbnail {
+  background-image: url("assets/thumbnails/beyond-earth/regular/small.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 120px;
+  width: 170px;
+  position: relative;
+}
+
+.recommended-movie-info {
+  margin-top: 0.5rem;
+}
