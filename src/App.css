@@ -110,7 +110,8 @@ svg:hover {
   border-radius: 20px;
   background-color: #80858fca;
   cursor: pointer;
-
+  scale: 0;
+  transition-duration: .3s;
 
 }
 
@@ -174,6 +175,9 @@ svg:hover {
 
 .recommended-thumbnail {
   border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .recommended-card {

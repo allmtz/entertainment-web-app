@@ -8,6 +8,16 @@ import {ReactComponent as TvIcon} from './assets/icon-nav-tv-series.svg'
 import {ReactComponent as BookmarkIconNav} from './assets/icon-nav-bookmark.svg'  
 
 
+function displayPlay(e){
+  if(e.target.querySelector('.play-container')){
+    e.target.querySelector('.play-container').style.scale = 1
+  }
+}
+
+function hidePlay(){
+  document.querySelectorAll('.play-container').forEach(container => container.style.scale = 0)
+}
+
 function App() {
   return (
     <div>
@@ -38,24 +48,24 @@ function App() {
         <section className="trending">
           <h2>Trending</h2>
           <div className="trending-carousel">
-            <TrendingCard category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/below-echo/regular/medium.jpg" />
-            <TrendingCard category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/van-life/regular/medium.jpg" />
-            <TrendingCard category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/dogs/regular/medium.jpg" />
-            <TrendingCard category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/unresolved-cases/regular/medium.jpg" />
-            <TrendingCard category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/the-heiress/regular/medium.jpg" />
+            <TrendingCard displayPlay={displayPlay} hidePlay={hidePlay} category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/below-echo/regular/medium.jpg" />
+            <TrendingCard displayPlay={displayPlay} hidePlay={hidePlay} category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/van-life/regular/medium.jpg" />
+            <TrendingCard displayPlay={displayPlay} hidePlay={hidePlay} category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/dogs/regular/medium.jpg" />
+            <TrendingCard displayPlay={displayPlay} hidePlay={hidePlay} category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/unresolved-cases/regular/medium.jpg" />
+            <TrendingCard displayPlay={displayPlay} hidePlay={hidePlay} category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/the-heiress/regular/medium.jpg" />
           </div>
         </section>
 
         <section className="recommended">
           <h2>Recommended for you</h2>
           <div className="recommended-container">
-            <RecommendedCard category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/1998/regular/medium.jpg" />
-            <RecommendedCard category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/asia-in-24-days/regular/medium.jpg" />
-            <RecommendedCard category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/bottom-gear/regular/medium.jpg" />
-            <RecommendedCard category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/mission-saturn/regular/medium.jpg" />
-            <RecommendedCard category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/no-land-beyond/regular/medium.jpg" />
-            <RecommendedCard category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/the-rockies/regular/medium.jpg" />
-            <RecommendedCard category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/the-tasty-tour/regular/medium.jpg" />
+            <RecommendedCard displayPlay={displayPlay} hidePlay={hidePlay} category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/1998/regular/medium.jpg" />
+            <RecommendedCard displayPlay={displayPlay} hidePlay={hidePlay} category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/bottom-gear/regular/medium.jpg" />
+            <RecommendedCard displayPlay={displayPlay} hidePlay={hidePlay} category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/asia-in-24-days/regular/medium.jpg" />
+            <RecommendedCard displayPlay={displayPlay} hidePlay={hidePlay} category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/mission-saturn/regular/medium.jpg" />
+            <RecommendedCard displayPlay={displayPlay} hidePlay={hidePlay} category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/no-land-beyond/regular/medium.jpg" />
+            <RecommendedCard displayPlay={displayPlay} hidePlay={hidePlay} category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/the-rockies/regular/medium.jpg" />
+            <RecommendedCard displayPlay={displayPlay} hidePlay={hidePlay} category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/the-tasty-tour/regular/medium.jpg" />
           </div>
         </section>
       </main>

@@ -1,8 +1,8 @@
-export const TrendingCard = ({category, title, releaseDate, rating, thumbnailPath}) =>
+export const TrendingCard = ( {displayPlay, hidePlay, category, title, releaseDate, rating, thumbnailPath} ) =>
 {
 
     return(
-        <div className="trending-card" style={{backgroundImage:`url(${thumbnailPath})`}}>
+        <div className="trending-card" onMouseEnter={displayPlay} onMouseLeave={hidePlay} style={{backgroundImage:`url(${thumbnailPath})`}}>
               
               <div className="play-container">
                 <img
