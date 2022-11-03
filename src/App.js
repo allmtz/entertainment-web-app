@@ -2,6 +2,12 @@ import "./App.css";
 import { RecommendedCard } from "./RecommendedCard";
 import { TrendingCard } from "./TrendingCard";
 
+import {ReactComponent as HomeIcon} from './assets/icon-nav-home.svg'  
+import {ReactComponent as MovieIcon} from './assets/icon-nav-movies.svg'  
+import {ReactComponent as TvIcon} from './assets/icon-nav-tv-series.svg'  
+import {ReactComponent as BookmarkIconNav} from './assets/icon-nav-bookmark.svg'  
+
+
 function App() {
   return (
     <div>
@@ -9,10 +15,10 @@ function App() {
         <img src="/assets/logo.svg" alt="site logo" />
 
         <ul>
-          <img src="/assets/icon-nav-home.svg" alt="Home link" />
-          <img src="/assets/icon-nav-movies.svg" alt="Movies link" />
-          <img src="/assets/icon-nav-tv-series.svg" alt="TV series link" />
-          <img src="/assets/icon-nav-bookmark.svg" alt="Bookmark link" />
+          <HomeIcon />
+          <MovieIcon />
+          <TvIcon />
+          <BookmarkIconNav />
         </ul>
 
         <img className="avatar" src="/assets/image-avatar.png" alt="avatar" />

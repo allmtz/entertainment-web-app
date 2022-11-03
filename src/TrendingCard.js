@@ -3,6 +3,15 @@ export const TrendingCard = ({category, title, releaseDate, rating, thumbnailPat
 
     return(
         <div className="trending-card" style={{backgroundImage:`url(${thumbnailPath})`}}>
+              
+              <div className="play-container">
+                <img
+                    src="/assets/icon-play.svg"
+                    alt="Play button"
+                  />
+                <button className="play-btn">Play</button>
+              </div>
+
               <div className="bookmark-container">
                 <img
                   className="bookmark"

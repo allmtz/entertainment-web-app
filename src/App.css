@@ -1,6 +1,7 @@
 :root {
   --primary-color: #10141e;
   --nav-color: #161d2f;
+  --hl: #fc4747;
 }
 
 * {
@@ -32,6 +33,16 @@ nav ul img {
   margin-left: 1rem;
 }
 
+svg{
+  margin-left: 1rem;
+  fill: #5A698F;
+}
+
+svg:hover {
+  fill: var(--hl);
+  cursor: pointer;
+}
+
 .row {
   display: flex;
 }
@@ -56,6 +67,7 @@ nav ul img {
   font-family: "Outfit", sans-serif;
   font-size: 1rem;
   outline: none;
+  caret-color: var(--hl);
 }
 
 .search-section input::placeholder {
@@ -83,7 +95,32 @@ nav ul img {
   background-image: url("assets/thumbnails/1998/regular/medium.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.play-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: .3rem .5rem .3rem .5rem;
+  border-radius: 20px;
+  background-color: #80858fca;
+  cursor: pointer;
+
+
+}
+
+.play-container button{
+  border: none;
+  background-color: transparent;
+  color: inherit;
+  font-size: 1rem;
+}
+
 
 .bookmark-container,
 .rating {
@@ -92,11 +129,21 @@ nav ul img {
   background-color: #3c45558f;
 }
 
+.bookmark-container:hover {
+  background-color: white;
+  cursor: pointer;
+}
+
 .bookmark-container {
   position: absolute;
   right: 0.5rem;
   top: 0.5rem;
 }
+
+/* .bookmark{
+  TODO
+  figure out bookmark hover effect
+} */
 
 .rating {
   position: absolute;
