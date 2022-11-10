@@ -20,15 +20,15 @@ function hidePlay(){
 
 function App() {
   return (
-    <div>
+    <div className="container">
       <nav>
-        <img src="/assets/logo.svg" alt="site logo" />
+        <img className="site-logo" src="/assets/logo.svg" alt="site logo" />
 
         <ul>
-          <HomeIcon />
-          <MovieIcon />
-          <TvIcon />
-          <BookmarkIconNav />
+          <li><HomeIcon /></li>
+          <li><MovieIcon /></li>
+          <li><TvIcon /></li>
+          <li><BookmarkIconNav /></li>
         </ul>
 
         <img className="avatar" src="/assets/image-avatar.png" alt="avatar" />

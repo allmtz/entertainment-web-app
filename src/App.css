@@ -25,8 +25,14 @@ nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding: 1rem .5rem;
+}
+
+nav ul {
+    display: flex;
+    gap: 3rem;
+    list-style-type: none;
+    list-style-position: inside;    
 }
 
 nav ul img {
@@ -34,7 +40,6 @@ nav ul img {
 }
 
 svg{
-  margin-left: 1rem;
   fill: #5A698F;
 }
 
@@ -209,3 +214,36 @@ svg:hover {
 .recommended-movie-info {
   margin-top: 0.5rem;
 }
+
+@media screen and (min-width:768px) {
+    .trending-card{
+        min-width: 440px;
+        height: 250px;
+    }
+
+    .recommended-thumbnail{
+        min-width: 240px;
+        height: 170px;
+    }
+}
+
+@media screen and (min-width:1400px){
+    .container{
+        display: flex;
+    }
+
+    nav{
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 1rem .5rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        margin-bottom: auto;
+        margin-top: 5rem;
+      }
+}
+
+
+
