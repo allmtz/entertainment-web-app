@@ -1,4 +1,4 @@
-export const RecommendedCard = ({displayPlay, hidePlay, category, title, releaseDate, rating, thumbnailPath}) => {
+export const RecommendedCard = ({displayPlay, hidePlay, category, title, releaseDate, thumbnailPath}) => {
     return(
         <div className="recommended-card">
               <div className="recommended-thumbnail" onMouseEnter={displayPlay} onMouseLeave={hidePlay} style={{backgroundImage:`url(${thumbnailPath})`}}>
@@ -23,8 +23,6 @@ export const RecommendedCard = ({displayPlay, hidePlay, category, title, release
                   <p>•</p>
                   <img src="/assets/icon-category-movie.svg" alt="" />
                   <p>{category}</p>
-                  <p>•</p>
-                  <p>{rating}</p>
                 </div>
                 <h1>{title}</h1>
               </div>
