@@ -79,6 +79,24 @@ svg:hover {
   display: flex;
   gap: 1rem;
   overflow-x: auto;
+  overscroll-behavior-inline: contain;
+}
+
+.trending-carousel::-webkit-scrollbar{
+  height: 10px;
+}
+
+::-webkit-scrollbar{
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #161d2f;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--hl);
+  border-radius: 10px;
 }
 
 .trending h2,
