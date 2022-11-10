@@ -2,6 +2,7 @@
   --primary-color: #10141e;
   --nav-color: #161d2f;
   --hl: #fc4747;
+  --svg-fill: #5A698F;
 }
 
 * {
@@ -40,7 +41,7 @@ nav ul img {
 }
 
 svg{
-  fill: #5A698F;
+  fill: var(--svg-fill);
 }
 
 svg:hover {
@@ -64,15 +65,43 @@ svg:hover {
   padding-top: 0.5rem;
 }
 
+.search-section form{
+  width: 100%;
+}
+
+form{
+  display: flex;
+  gap: 1rem;
+}
+
+form button{
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  padding: .5rem 1rem ;
+  background-color: var(--svg-fill);
+  color: white;
+  cursor: pointer;
+}
+
+form button:hover{
+  background-color: #5a698f70;
+}
+
 .search-section input {
   width: 100%;
   background-color: var(--primary-color);
   border: none;
   color: #7f8287;
-  font-family: "Outfit", sans-serif;
+  font-family: inherit;
   font-size: 1rem;
   outline: none;
   caret-color: var(--hl);
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.search-section input:focus{
+  border-color: var(--svg-fill);
 }
 
 .search-section input::placeholder {

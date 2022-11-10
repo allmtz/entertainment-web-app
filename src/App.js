@@ -9,7 +9,7 @@ import {ReactComponent as BookmarkIconNav} from './assets/icon-nav-bookmark.svg'
 import { useState } from "react";
 import { useRef } from "react";
 
-const API_KEY = "YOUR_KEY";
+const API_KEY = "2fa9b8c3457255630ef48d6faeab6c29";
 
 
 function displayPlay(e){
@@ -86,6 +86,7 @@ function App() {
               id=""
               placeholder="Search for movies"
             />
+            <button type="submit">Search</button>
           </form>
          
 
