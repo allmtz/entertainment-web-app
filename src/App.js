@@ -6,6 +6,10 @@ import {ReactComponent as HomeIcon} from './assets/icon-nav-home.svg'
 import {ReactComponent as MovieIcon} from './assets/icon-nav-movies.svg'  
 import {ReactComponent as TvIcon} from './assets/icon-nav-tv-series.svg'  
 import {ReactComponent as BookmarkIconNav} from './assets/icon-nav-bookmark.svg'  
+import { useState } from "react";
+import { useRef } from "react";
+
+const API_KEY = "YOUR_KEY";
 
 
 function displayPlay(e){
@@ -19,6 +23,42 @@ function hidePlay(){
 }
 
 function App() {
+
+  const [ moviesToDisplay, setMoviesToDisplay ] = useState([])
+  const searchRef = useRef(null)
+
+  function handleSubmit(e){
+    e.preventDefault()
+
+    getMovies(searchRef.current.value)
+
+    searchRef.current.value = ''
+  }
+
+
+  async function getMovies(userSearch) {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${String(
+        userSearch
+      )}`
+    );
+    const movies = await response.json();
+    // console.log(movies);  the response from movieDB
+
+
+    //filter out movies missing either an overview or backdrop
+    const filteredResults =  movies.results.filter(movie => {
+      if(movie.overview === "" || movie.poster_path == null){
+        return false
+      }
+      return true
+
+    })
+
+    setMoviesToDisplay(filteredResults)
+    console.log(moviesToDisplay)
+
+  }
   return (
     <div>
       <nav>
@@ -37,12 +77,18 @@ function App() {
       <main>
         <section className="search-section">
           <img src="/assets/icon-search.svg" alt="Search icon" />
-          <input
-            type="text"
-            name=""
-            id=""
-            placeholder="Search for movies or TV series"
-          />
+
+          <form onSubmit={handleSubmit}  action="">
+            <input
+              ref={searchRef}
+              type="text"
+              name=""
+              id=""
+              placeholder="Search for movies"
+            />
+          </form>
+         
+
         </section>
 
         <section className="trending">
@@ -57,15 +103,22 @@ function App() {
         </section>
 
         <section className="recommended">
-          <h2>Recommended for you</h2>
+          <h2>{moviesToDisplay.length} Results</h2>
+          
           <div className="recommended-container">
-            <RecommendedCard displayPlay={displayPlay} hidePlay={hidePlay} category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/1998/regular/medium.jpg" />
-            <RecommendedCard displayPlay={displayPlay} hidePlay={hidePlay} category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/bottom-gear/regular/medium.jpg" />
-            <RecommendedCard displayPlay={displayPlay} hidePlay={hidePlay} category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/asia-in-24-days/regular/medium.jpg" />
-            <RecommendedCard displayPlay={displayPlay} hidePlay={hidePlay} category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/mission-saturn/regular/medium.jpg" />
-            <RecommendedCard displayPlay={displayPlay} hidePlay={hidePlay} category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/no-land-beyond/regular/medium.jpg" />
-            <RecommendedCard displayPlay={displayPlay} hidePlay={hidePlay} category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/the-rockies/regular/medium.jpg" />
-            <RecommendedCard displayPlay={displayPlay} hidePlay={hidePlay} category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/the-tasty-tour/regular/medium.jpg" />
+            {
+              moviesToDisplay.map( movie =>
+              <RecommendedCard 
+                key={movie.id} 
+                displayPlay={displayPlay} 
+                hidePlay={hidePlay} 
+                category={"Movie"} t
+                title={movie.title} 
+                releaseDate= {movie.release_date === undefined ? "N/A" : movie.release_date.slice( 0,4 )} 
+                thumbnailPath={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} 
+              />
+              )
+            }
           </div>
         </section>
       </main>
