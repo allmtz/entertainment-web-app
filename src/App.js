@@ -8,8 +8,9 @@ import {ReactComponent as TvIcon} from './assets/icon-nav-tv-series.svg'
 import {ReactComponent as BookmarkIconNav} from './assets/icon-nav-bookmark.svg'  
 import { useState } from "react";
 import { useRef } from "react";
+import { useEffect } from "react";
 
-const API_KEY = "2fa9b8c3457255630ef48d6faeab6c29";
+const API_KEY = "YOUR_KEY";
 
 
 function displayPlay(e){
@@ -25,18 +26,23 @@ function hidePlay(){
 function App() {
 
   const [ moviesToDisplay, setMoviesToDisplay ] = useState([])
+  const [ trending, setTrending ] = useState([])
   const searchRef = useRef(null)
+
+  useEffect( () => { 
+    getTrending()
+  },[])
 
   function handleSubmit(e){
     e.preventDefault()
 
-    getMovies(searchRef.current.value)
+    getUserSearch(searchRef.current.value)
 
     searchRef.current.value = ''
   }
 
 
-  async function getMovies(userSearch) {
+  async function getUserSearch(userSearch) {
     const response = await fetch(
       `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${String(
         userSearch
@@ -59,6 +65,16 @@ function App() {
     console.log(moviesToDisplay)
 
   }
+
+  async function getTrending(){
+    const response = await fetch(
+      `https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}`
+    );
+    const nowTrending = await response.json();
+
+    setTrending(nowTrending.results)
+  }
+
   return (
     <div className="container">
       <nav>
@@ -95,11 +111,21 @@ function App() {
         <section className="trending">
           <h2>Trending</h2>
           <div className="trending-carousel">
-            <TrendingCard displayPlay={displayPlay} hidePlay={hidePlay} category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/below-echo/regular/medium.jpg" />
-            <TrendingCard displayPlay={displayPlay} hidePlay={hidePlay} category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/van-life/regular/medium.jpg" />
-            <TrendingCard displayPlay={displayPlay} hidePlay={hidePlay} category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/dogs/regular/medium.jpg" />
-            <TrendingCard displayPlay={displayPlay} hidePlay={hidePlay} category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/unresolved-cases/regular/medium.jpg" />
-            <TrendingCard displayPlay={displayPlay} hidePlay={hidePlay} category={"Movie"} title={"Good Title"} releaseDate={"2020"} rating={"PG"} thumbnailPath="assets/thumbnails/the-heiress/regular/medium.jpg" />
+
+          {
+              trending.map( item =>
+                <TrendingCard 
+                  key={item.id} 
+                  displayPlay={displayPlay} 
+                  hidePlay={hidePlay} 
+                  category={item.media_type === 'movie' ? "Movie" : "TV Show"} 
+                  title={item.media_type === 'movie' ? item.title : item.name} 
+                  releaseDate= {item.release_date === undefined ? "N/A" : item.release_date.slice( 0,4 )} 
+                  thumbnailPath={`https://image.tmdb.org/t/p/w300${item.poster_path}`} 
+                />
+              )
+            }
+          
           </div>
         </section>
 
@@ -113,7 +139,7 @@ function App() {
                 key={movie.id} 
                 displayPlay={displayPlay} 
                 hidePlay={hidePlay} 
-                category={"Movie"} t
+                category={"Movie"} 
                 title={movie.title} 
                 releaseDate= {movie.release_date === undefined ? "N/A" : movie.release_date.slice( 0,4 )} 
                 thumbnailPath={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} 
