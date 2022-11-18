@@ -233,35 +233,28 @@ form button:hover{
 
 .recommended-thumbnail {
   border-radius: 10px;
+  height: 170px;
   display: flex;
   align-items: center;
   justify-content: center;
-}
+  background-image: url("assets/thumbnails/beyond-earth/regular/small.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: relative;
 
-.recommended-card {
-  width: min-content;
-  margin-top: 0.5rem;
 }
 
 .recommended {
   margin-top: 3rem;
 }
+
 .recommended-container {
   margin-top: 1.5rem;
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
   padding-bottom: 4rem;
-}
-
-.recommended-thumbnail {
-  background-image: url("assets/thumbnails/beyond-earth/regular/small.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 120px;
-  width: 170px;
-  position: relative;
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(200px, .5fr) );
+  gap: 20px;
 }
 
 .recommended-movie-info {
@@ -272,11 +265,6 @@ form button:hover{
     .trending-card{
         min-width: 440px;
         height: 250px;
-    }
-
-    .recommended-thumbnail{
-        min-width: 240px;
-        height: 170px;
     }
 }
 
