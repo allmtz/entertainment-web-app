@@ -12,7 +12,7 @@
 }
 
 .container{
-  max-width: 1400px;
+  max-width: 1600px;
 }
 
 body {
@@ -31,7 +31,6 @@ nav {
   justify-content: space-around;
   align-items: center;
   padding: 1rem .5rem;
-  max-height: 600px;
 }
 
 nav ul {
@@ -268,7 +267,7 @@ form button:hover{
     }
 }
 
-@media screen and (min-width:1400px){
+@media screen and (min-width:1420px){
     .container{
         display: flex;
     }
@@ -277,11 +276,13 @@ form button:hover{
         flex-direction: column;
         justify-content: space-between;
         padding: 1rem .5rem;
-    }
+        height: 800px;
+        padding: 1rem 1rem;
+        margin: 1rem .5rem;
+      }
 
     nav ul {
         flex-direction: column;
-        margin-bottom: auto;
         margin-top: 5rem;
       }
 }
