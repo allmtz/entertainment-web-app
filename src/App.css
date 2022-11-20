@@ -11,10 +11,6 @@
   margin: 0;
 }
 
-.container{
-  max-width: 1600px;
-}
-
 body {
   background-color: var(--primary-color);
   font-family: "Outfit", sans-serif;
@@ -35,7 +31,7 @@ nav {
 
 nav ul {
     display: flex;
-    gap: 3rem;
+    gap: 2rem;
     list-style-type: none;
     list-style-position: inside;    
 }
@@ -252,8 +248,8 @@ form button:hover{
   margin-top: 1.5rem;
   padding-bottom: 4rem;
   display: grid;
-  grid-template-columns: repeat( auto-fit, minmax(200px, .5fr) );
-  gap: 20px;
+  grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) );
+  gap: 30px;
 }
 
 .recommended-movie-info {
@@ -270,6 +266,7 @@ form button:hover{
 @media screen and (min-width:1420px){
     .container{
         display: flex;
+        justify-content: center;
     }
 
     nav{
