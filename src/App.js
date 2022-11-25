@@ -2,7 +2,7 @@ import "./App.css";
 import { Nav } from "./components/Nav";
 import { Searchbar } from "./components/Searchbar";
 import { Trending } from "./components/Trending";
-import { Recommended } from "./components/Recommended";
+import { Results } from "./components/Results";
 
 import { useState } from "react";
 import { useRef } from "react";
@@ -82,7 +82,7 @@ function App() {
       <main>
         <Searchbar handleSubmit={handleSubmit} searchRef={searchRef} />
         <Trending trending={trending} displayPlay={displayPlay} hidePlay={hidePlay} />
-        <Recommended displayPlay={displayPlay} hidePlay={hidePlay} moviesToDisplay={moviesToDisplay} />
+        <Results displayPlay={displayPlay} hidePlay={hidePlay} moviesToDisplay={moviesToDisplay} />
       </main>
     </div>
   );

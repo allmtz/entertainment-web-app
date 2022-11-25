@@ -1,13 +1,13 @@
-export const RecommendedCard = ({displayPlay, hidePlay, category, title, releaseDate, thumbnailPath}) => {
+export const ResultCard = ({displayPlay, hidePlay, category, title, releaseDate, thumbnailPath}) => {
     return(
-        <div className="recommended-card">
-              <div className="recommended-thumbnail" onMouseEnter={displayPlay} onMouseLeave={hidePlay} style={{backgroundImage:`url(${thumbnailPath})`}}>
+        <div>
+              <div className="result-thumbnail" onMouseEnter={displayPlay} onMouseLeave={hidePlay} style={{backgroundImage:`url(${thumbnailPath})`}}>
                 <div className="play-container">
                   <img
                       src="/assets/icon-play.svg"
                       alt="Play button"
                     />
-                  <button className="play-btn">Play</button>
+                  <button>Play</button>
                 </div>
                 <div className="bookmark-container">
                   <img
@@ -17,7 +17,7 @@ export const RecommendedCard = ({displayPlay, hidePlay, category, title, release
                   />
                 </div>
               </div>
-              <div className="recommended-movie-info">
+              <div className="result-movie-info">
                 <div className="row">
                   <p>{releaseDate}</p>
                   <p>•</p>

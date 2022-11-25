@@ -135,7 +135,7 @@ form button:hover{
 }
 
 .trending h2,
-.recommended h2 {
+.results h2 {
   margin-top: 1rem;
   font-weight: 100;
 }
@@ -215,7 +215,7 @@ form button:hover{
   color: #e0cfcfe7;
 }
 
-.recommended-movie-info .row,
+.result-movie-info .row,
 .movie-info .row {
   align-items: center;
   gap: 0.5rem;
@@ -226,7 +226,7 @@ form button:hover{
   color: white;
 }
 
-.recommended-thumbnail {
+.result-thumbnail {
   border-radius: 10px;
   height: 170px;
   display: flex;
@@ -240,11 +240,11 @@ form button:hover{
 
 }
 
-.recommended {
+.results {
   margin-top: 3rem;
 }
 
-.recommended-container {
+.results-container {
   margin-top: 1.5rem;
   padding-bottom: 4rem;
   display: grid;
@@ -252,7 +252,7 @@ form button:hover{
   gap: 30px;
 }
 
-.recommended-movie-info {
+.result-movie-info {
   margin-top: 0.5rem;
 }
 

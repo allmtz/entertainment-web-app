@@ -1,13 +1,13 @@
-import { RecommendedCard } from "./RecommendedCard";
+import { ResultCard } from "./ResultCard";
 
-export const Recommended = ({ displayPlay, hidePlay, moviesToDisplay }) => {
+export const Results = ({ displayPlay, hidePlay, moviesToDisplay }) => {
   return (
-    <section className="recommended">
+    <section className="results">
       <h2>{moviesToDisplay.length} Results</h2>
 
-      <div className="recommended-container">
+      <div className="results-container">
         {moviesToDisplay.map((movie) => (
-          <RecommendedCard
+          <ResultCard
             key={movie.id}
             displayPlay={displayPlay}
             hidePlay={hidePlay}
