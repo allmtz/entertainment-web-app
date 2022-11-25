@@ -1,14 +1,15 @@
 import "./App.css";
-import { RecommendedCard } from "./RecommendedCard";
-import { TrendingCard } from "./TrendingCard";
+import { Nav } from "./components/Nav";
+import { Searchbar } from "./components/Searchbar";
+import { Trending } from "./components/Trending";
+import { Recommended } from "./components/Recommended";
 
-import {ReactComponent as HomeIcon} from './assets/icon-nav-home.svg'  
-import {ReactComponent as MovieIcon} from './assets/icon-nav-movies.svg'  
-import {ReactComponent as TvIcon} from './assets/icon-nav-tv-series.svg'  
-import {ReactComponent as BookmarkIconNav} from './assets/icon-nav-bookmark.svg'  
 import { useState } from "react";
 import { useRef } from "react";
 import { useEffect } from "react";
+
+// import { Routes, Route } from "react-router-dom";
+
 
 const API_KEY = "YOUR_KEY";
 
@@ -77,77 +78,11 @@ function App() {
 
   return (
     <div className="container">
-      <nav>
-        <img className="site-logo" src="/assets/logo.svg" alt="site logo" />
-
-        <ul>
-          <li><HomeIcon /></li>
-          <li><MovieIcon /></li>
-          <li><TvIcon /></li>
-          <li><BookmarkIconNav /></li>
-        </ul>
-
-        <img className="avatar" src="/assets/image-avatar.png" alt="avatar" />
-      </nav>
-
+      <Nav />
       <main>
-        <section className="search-section">
-          <img src="/assets/icon-search.svg" alt="Search icon" />
-
-          <form onSubmit={handleSubmit}  action="">
-            <input
-              ref={searchRef}
-              type="text"
-              name=""
-              id=""
-              placeholder="Search for movies"
-            />
-            <button type="submit">Search</button>
-          </form>
-         
-
-        </section>
-
-        <section className="trending">
-          <h2>Trending</h2>
-          <div className="trending-carousel">
-
-          {
-              trending.map( item =>
-                <TrendingCard 
-                  key={item.id} 
-                  displayPlay={displayPlay} 
-                  hidePlay={hidePlay} 
-                  category={item.media_type === 'movie' ? "Movie" : "TV Show"} 
-                  title={item.media_type === 'movie' ? item.title : item.name} 
-                  releaseDate= {item.release_date === undefined ? "N/A" : item.release_date.slice( 0,4 )} 
-                  thumbnailPath={`https://image.tmdb.org/t/p/w300${item.poster_path}`} 
-                />
-              )
-            }
-          
-          </div>
-        </section>
-
-        <section className="recommended">
-          <h2>{moviesToDisplay.length} Results</h2>
-          
-          <div className="recommended-container">
-            {
-              moviesToDisplay.map( movie =>
-              <RecommendedCard 
-                key={movie.id} 
-                displayPlay={displayPlay} 
-                hidePlay={hidePlay} 
-                category={"Movie"} 
-                title={movie.title} 
-                releaseDate= {movie.release_date === undefined ? "N/A" : movie.release_date.slice( 0,4 )} 
-                thumbnailPath={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} 
-              />
-              )
-            }
-          </div>
-        </section>
+        <Searchbar handleSubmit={handleSubmit} searchRef={searchRef} />
+        <Trending trending={trending} displayPlay={displayPlay} hidePlay={hidePlay} />
+        <Recommended displayPlay={displayPlay} hidePlay={hidePlay} moviesToDisplay={moviesToDisplay} />
       </main>
     </div>
   );
