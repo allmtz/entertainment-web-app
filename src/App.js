@@ -1,13 +1,13 @@
 import "./App.css";
 import { Nav } from "./components/Nav";
 import { Searchbar } from "./components/Searchbar";
-import { Trending } from "./components/Trending";
 import { Results } from "./components/Results";
 
 import { useState } from "react";
 import { useRef } from "react";
 import { useEffect } from "react";
-import { Genre } from "./components/Genre";
+
+import { Carousel } from "./components/Carousel";
 
 // import { Routes, Route } from "react-router-dom";
 
@@ -129,17 +129,17 @@ function App() {
       <Nav />
       <main>
         <Searchbar handleSubmit={handleSubmit} searchRef={searchRef} />
-        <Trending trending={trending} displayPlay={displayPlay} hidePlay={hidePlay} />
+        <Carousel genre={"Trending"} genreMovies={trending} displayPlay={displayPlay} hidePlay={hidePlay} />
         <Results displayPlay={displayPlay} hidePlay={hidePlay} moviesToDisplay={moviesToDisplay} />
 
         {/* Possibly stick these under landing page component ? */}
-        <Genre genre={"Action"} genreMovies={action} displayPlay={displayPlay} hidePlay={hidePlay} />
-        <Genre genre={"Comedy"} genreMovies={comedy} displayPlay={displayPlay} hidePlay={hidePlay} />
-        <Genre genre={"Western"} genreMovies={western} displayPlay={displayPlay} hidePlay={hidePlay} />
-        <Genre genre={"Animation"} genreMovies={animation} displayPlay={displayPlay} hidePlay={hidePlay} />
-        <Genre genre={"Romance"} genreMovies={romance} displayPlay={displayPlay} hidePlay={hidePlay} />
-        <Genre genre={"Drama"} genreMovies={drama} displayPlay={displayPlay} hidePlay={hidePlay} />
-        <Genre genre={"Fantasy"} genreMovies={fantasy} displayPlay={displayPlay} hidePlay={hidePlay} />
+        <Carousel genre={"Action"} genreMovies={action} displayPlay={displayPlay} hidePlay={hidePlay} />
+        <Carousel genre={"Western"} genreMovies={western} displayPlay={displayPlay} hidePlay={hidePlay} />
+        <Carousel genre={"Comedy"} genreMovies={comedy} displayPlay={displayPlay} hidePlay={hidePlay} />
+        <Carousel genre={"Animation"} genreMovies={animation} displayPlay={displayPlay} hidePlay={hidePlay} />
+        <Carousel genre={"Romance"} genreMovies={romance} displayPlay={displayPlay} hidePlay={hidePlay} />
+        <Carousel genre={"Drama"} genreMovies={drama} displayPlay={displayPlay} hidePlay={hidePlay} />
+        <Carousel genre={"Fantasy"} genreMovies={fantasy} displayPlay={displayPlay} hidePlay={hidePlay} />
 
       </main>
     </div>

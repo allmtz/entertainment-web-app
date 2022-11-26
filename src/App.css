@@ -53,6 +53,10 @@ svg:hover {
   display: flex;
 }
 
+.container{
+  margin-bottom: 6rem;
+}
+
 .avatar {
   width: 40px;
   border: 2px solid white;
@@ -108,7 +112,11 @@ form button:hover{
   color: #7f8287;
 }
 
-.trending-carousel {
+.carousel-wrapper{
+  margin-top: 2rem;
+}
+
+.carousel {
   margin-top: 1rem;
   display: flex;
   gap: 1rem;
@@ -117,7 +125,7 @@ form button:hover{
   max-width: 1300px;
 }
 
-.trending-carousel::-webkit-scrollbar{
+.carousel::-webkit-scrollbar{
   height: 10px;
 }
 
@@ -134,13 +142,13 @@ form button:hover{
   border-radius: 10px;
 }
 
-.trending h2,
+.carousel h2,
 .results h2 {
   margin-top: 1rem;
   font-weight: 100;
 }
 
-.trending-card {
+.carousel-card {
   border-radius: 10px;
   position: relative;
   min-width: 260px;
@@ -257,7 +265,7 @@ form button:hover{
 }
 
 @media screen and (min-width:768px) {
-    .trending-card{
+    .carousel-card{
         min-width: 440px;
         height: 250px;
     }

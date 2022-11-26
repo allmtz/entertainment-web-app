@@ -1,9 +1,7 @@
-export const TrendingCard = ( {displayPlay, hidePlay, category, title, releaseDate, rating, thumbnailPath} ) =>
+export const CarouselCard = ( {displayPlay, hidePlay, category, title, releaseDate, rating, thumbnailPath} ) =>
 {
-
     return(
-        <div className="trending-card" onMouseEnter={displayPlay} onMouseLeave={hidePlay} style={{backgroundImage:`url(${thumbnailPath})`}}>
-              
+        <div className="carousel-card" onMouseEnter={displayPlay} onMouseLeave={hidePlay} style={{backgroundImage:`url(${thumbnailPath})`}}>
               <div className="play-container">
                 <img
                     src="/assets/icon-play.svg"
@@ -28,8 +26,6 @@ export const TrendingCard = ( {displayPlay, hidePlay, category, title, releaseDa
                 </div>
                 <h1>{title}</h1>
               </div>
-              <div className="rating">{rating}</div>
             </div>
     )
 }
-
