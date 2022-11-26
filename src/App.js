@@ -46,7 +46,7 @@ function App() {
     getGenre(35,setComedy)
     getGenre(37,setWestern)
     getGenre(14,setFantasy)
-    getGenre(36,setAnimation)
+    getGenre(16,setAnimation)
     getGenre(10749,setRomance)
     getGenre(18,setDrama)
   },[])
