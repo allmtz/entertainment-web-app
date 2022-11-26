@@ -1,4 +1,7 @@
-export const ResultCard = ({displayPlay, hidePlay, category, title, releaseDate, thumbnailPath}) => {
+import {displayPlay} from "../App"
+import {hidePlay} from "../App"
+
+export const ResultCard = ( { category, title, releaseDate, thumbnailPath } ) => {
     return(
         <div>
               <div className="result-thumbnail" onMouseEnter={displayPlay} onMouseLeave={hidePlay} style={{backgroundImage:`url(${thumbnailPath})`}}>

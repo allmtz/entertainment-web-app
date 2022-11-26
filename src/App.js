@@ -8,6 +8,7 @@ import { useRef } from "react";
 import { useEffect } from "react";
 
 import { Carousel } from "./components/Carousel";
+import { Landing } from "./components/Landing";
 
 // import { Routes, Route } from "react-router-dom";
 
@@ -15,19 +16,19 @@ import { Carousel } from "./components/Carousel";
 const API_KEY = "2fa9b8c3457255630ef48d6faeab6c29";
 
 
-function displayPlay(e){
+export const displayPlay = (e) =>{
   if(e.target.querySelector('.play-container')){
     e.target.querySelector('.play-container').style.scale = 1
   }
 }
 
-function hidePlay(){
+export const hidePlay = () =>{
   document.querySelectorAll('.play-container').forEach(container => container.style.scale = 0)
 }
 
 function App() {
 
-  const [ moviesToDisplay, setMoviesToDisplay ] = useState([])
+  const [ moviesToDisplay, setMoviesToDisplay ] = useState(null)
   const [ trending, setTrending ] = useState([])
   const searchRef = useRef(null)
 
@@ -129,17 +130,9 @@ function App() {
       <Nav />
       <main>
         <Searchbar handleSubmit={handleSubmit} searchRef={searchRef} />
-        <Carousel genre={"Trending"} genreMovies={trending} displayPlay={displayPlay} hidePlay={hidePlay} />
-        <Results displayPlay={displayPlay} hidePlay={hidePlay} moviesToDisplay={moviesToDisplay} />
+        <Carousel genre={"Trending"} genreMovies={trending} />
 
-        {/* Possibly stick these under landing page component ? */}
-        <Carousel genre={"Action"} genreMovies={action} displayPlay={displayPlay} hidePlay={hidePlay} />
-        <Carousel genre={"Western"} genreMovies={western} displayPlay={displayPlay} hidePlay={hidePlay} />
-        <Carousel genre={"Comedy"} genreMovies={comedy} displayPlay={displayPlay} hidePlay={hidePlay} />
-        <Carousel genre={"Animation"} genreMovies={animation} displayPlay={displayPlay} hidePlay={hidePlay} />
-        <Carousel genre={"Romance"} genreMovies={romance} displayPlay={displayPlay} hidePlay={hidePlay} />
-        <Carousel genre={"Drama"} genreMovies={drama} displayPlay={displayPlay} hidePlay={hidePlay} />
-        <Carousel genre={"Fantasy"} genreMovies={fantasy} displayPlay={displayPlay} hidePlay={hidePlay} />
+        { moviesToDisplay != null ? <Results moviesToDisplay={moviesToDisplay} /> : <Landing action={action} western={western} comedy={comedy} animation={animation} romance={romance} drama={drama} fantasy={fantasy} /> }
 
       </main>
     </div>

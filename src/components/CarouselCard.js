@@ -1,4 +1,7 @@
-export const CarouselCard = ( {displayPlay, hidePlay, category, title, releaseDate, rating, thumbnailPath} ) =>
+import {displayPlay} from "../App"
+import {hidePlay} from "../App"
+
+export const CarouselCard = ( {category, title, releaseDate, thumbnailPath } ) =>
 {
     return(
         <div className="carousel-card" onMouseEnter={displayPlay} onMouseLeave={hidePlay} style={{backgroundImage:`url(${thumbnailPath})`}}>
