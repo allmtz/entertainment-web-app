@@ -1,17 +1,15 @@
+// components
 import "./App.css";
 import { Nav } from "./components/Nav";
 import { Searchbar } from "./components/Searchbar";
-import { Results } from "./components/Results";
-
+// pages
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Home } from "./pages/Home";
+import { MovieInfo } from "./pages/MovieInfo";
+// react
 import { useState } from "react";
 import { useRef } from "react";
 import { useEffect } from "react";
-
-import { Carousel } from "./components/Carousel";
-import { Landing } from "./components/Landing";
-
-// import { Routes, Route } from "react-router-dom";
-
 
 const API_KEY = "2fa9b8c3457255630ef48d6faeab6c29";
 
@@ -40,6 +38,8 @@ function App() {
   const [ animation, setAnimation ] = useState([])
   const [ romance, setRomance ] = useState([])
   const [ drama, setDrama ] = useState([])
+
+  const [ focusedMovie, setFocusedMovie ] = useState([])
 
   useEffect( () => { 
     getTrending()
@@ -125,17 +125,29 @@ function App() {
     setTrending(nowTrending.results)
   }
 
+    //used to get information on a user clicked movie 
+    async function getInfo(movieID){
+      const response = await fetch(
+        `https://api.themoviedb.org/3//movie/${movieID}?&api_key=${API_KEY}`
+      );
+      const movie = await response.json();
+    
+      setFocusedMovie(movie)
+    }
+
   return (
-    <div className="container">
-      <Nav />
-      <main>
-        <Searchbar handleSubmit={handleSubmit} searchRef={searchRef} />
-        <Carousel genre={"Trending"} genreMovies={trending} />
-
-        { moviesToDisplay != null ? <Results moviesToDisplay={moviesToDisplay} /> : <Landing action={action} western={western} comedy={comedy} animation={animation} romance={romance} drama={drama} fantasy={fantasy} /> }
-
-      </main>
-    </div>
+    <BrowserRouter>
+      <div className="container">
+        <Nav />
+        <main>
+          <Searchbar handleSubmit={handleSubmit} searchRef={searchRef} />
+          <Routes>
+            <Route path="/" element={ <Home moviesToDisplay={moviesToDisplay} trending={trending} getInfo={getInfo} action={action} western={western} comedy={comedy} animation={animation} romance={romance} drama={drama} fantasy={fantasy} /> } />
+            <Route path="/:id" element ={ <MovieInfo movie={focusedMovie} /> } />
+          </Routes>
+        </main>
+      </div>
+    </BrowserRouter>
   );
 }
 

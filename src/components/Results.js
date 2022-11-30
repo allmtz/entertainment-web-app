@@ -1,6 +1,6 @@
 import { ResultCard } from "./ResultCard";
 
-export const Results = ({ moviesToDisplay }) => {
+export const Results = ({ moviesToDisplay,getInfo }) => {
   return (
     <section className="results">
       <h2>{moviesToDisplay.length} Results</h2>
@@ -9,6 +9,8 @@ export const Results = ({ moviesToDisplay }) => {
         {moviesToDisplay.map((movie) => (
           <ResultCard
             key={movie.id}
+            movieID={movie.id}
+            getInfo={getInfo}
             category={"Movie"}
             title={movie.title}
             releaseDate={

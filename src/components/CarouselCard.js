@@ -1,16 +1,21 @@
+import { Link } from "react-router-dom"
 import {displayPlay} from "../App"
 import {hidePlay} from "../App"
 
-export const CarouselCard = ( {category, title, releaseDate, thumbnailPath } ) =>
+export const CarouselCard = ( { movieID, getInfo, category, title, releaseDate, thumbnailPath } ) =>
 {
     return(
         <div className="carousel-card" onMouseEnter={displayPlay} onMouseLeave={hidePlay} style={{backgroundImage:`url(${thumbnailPath})`}}>
               <div className="play-container">
-                <img
-                    src="/assets/icon-play.svg"
-                    alt="Play button"
-                  />
-                <button className="play-btn">Play</button>
+                 <Link className="row"  to={title}>
+                    <button onClick={ () => getInfo(movieID) } className="play-btn">
+                    <img
+                      src="/assets/icon-play.svg"
+                      alt="Play button"
+                    />
+                    </button>
+                    <button onClick={ () => getInfo(movieID) }>Play</button>
+                  </Link>
               </div>
 
               <div className="bookmark-container">
