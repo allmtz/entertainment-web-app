@@ -178,6 +178,7 @@ form button:hover{
   cursor: pointer;
   scale: 0;
   transition-duration: .3s;
+  z-index: 100;
 
 }
 
@@ -288,7 +289,9 @@ form button:hover{
         flex-direction: column;
         justify-content: space-between;
         padding: 1rem .5rem;
-        height: 800px;
+        height: 80vh;
+        max-height: 700px;
+        min-height: 500px;
         padding: 1rem 1rem;
         margin: 1rem .5rem;
       }
