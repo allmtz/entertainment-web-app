@@ -10,6 +10,7 @@ import { MovieInfo } from "./pages/MovieInfo";
 import { useState } from "react";
 import { useRef } from "react";
 import { useEffect } from "react";
+import { Results } from "./components/Results";
 
 const API_KEY = "2fa9b8c3457255630ef48d6faeab6c29";
 
@@ -28,7 +29,7 @@ function App() {
 
   const navigate = useNavigate()
 
-  const [ moviesToDisplay, setMoviesToDisplay ] = useState(null)
+  const [ moviesToDisplay, setMoviesToDisplay ] = useState([])
   const [ trending, setTrending ] = useState([])
   const searchRef = useRef(null)
 
@@ -89,9 +90,9 @@ function App() {
 
     getUserSearch(searchRef.current.value)
 
-    searchRef.current.value = ''
+    navigate(`/search/${searchRef.current.value}`)
 
-    navigate("/")
+    searchRef.current.value = ''
   }
 
 
@@ -144,8 +145,9 @@ function App() {
         <main>
           <Searchbar handleSubmit={handleSubmit} searchRef={searchRef} />
           <Routes>
-            <Route path="/" element={ <Home moviesToDisplay={moviesToDisplay} trending={trending} getInfo={getInfo} action={action} western={western} comedy={comedy} animation={animation} romance={romance} drama={drama} fantasy={fantasy} /> } />
-            <Route path="/:id" element ={ <MovieInfo movie={focusedMovie} /> } />
+            <Route path="/" element={ <Home trending={trending} getInfo={getInfo} action={action} western={western} comedy={comedy} animation={animation} romance={romance} drama={drama} fantasy={fantasy} /> } />
+            <Route path="/search/:movieName" element={<Results moviesToDisplay={moviesToDisplay} getInfo={getInfo} /> } />
+            <Route path="/info/:movieID" element={ <MovieInfo movie={focusedMovie} /> } />
           </Routes>
         </main>
       </div>

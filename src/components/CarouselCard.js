@@ -7,7 +7,7 @@ export const CarouselCard = ( { movieID, getInfo, category, title, releaseDate, 
     return(
         <div className="carousel-card" onMouseEnter={displayPlay} onMouseLeave={hidePlay} style={{backgroundImage:`url(${thumbnailPath})`}}>
               <div className="play-container">
-                 <Link className="row"  to={title}>
+                 <Link className="row"  to={`info/${movieID}`}>
                     <button onClick={ () => getInfo(movieID) } className="play-btn">
                     <img
                       src="/assets/icon-play.svg"
