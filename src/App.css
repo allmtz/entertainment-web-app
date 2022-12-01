@@ -21,6 +21,11 @@ main {
   padding: 0 0.5rem 0 0.5rem;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 nav {
   background-color: var(--nav-color);
   display: flex;
@@ -182,7 +187,7 @@ form button:hover{
   color: inherit;
   font-size: 1rem;
   cursor: pointer;
-  margin-left: .5rem;
+  padding-left: .5rem;
 }
 
 
@@ -292,4 +297,28 @@ form button:hover{
         flex-direction: column;
         margin-top: 5rem;
       }
+}
+
+.focused-movie{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+}
+
+.focused-backdrop img{
+  width: 100%;
+  border-radius: 10px;
+}
+
+.focused-backdrop{
+  align-self: center;
+}
+
+.focused-votes{
+  gap: 1rem;
+}
+
+.focused-overview{
+  max-width: 550px;
 }
