@@ -3,7 +3,7 @@ import "./App.css";
 import { Nav } from "./components/Nav";
 import { Searchbar } from "./components/Searchbar";
 // pages
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { MovieInfo } from "./pages/MovieInfo";
 // react
@@ -25,6 +25,8 @@ export const hidePlay = () =>{
 }
 
 function App() {
+
+  const navigate = useNavigate()
 
   const [ moviesToDisplay, setMoviesToDisplay ] = useState(null)
   const [ trending, setTrending ] = useState([])
@@ -82,13 +84,14 @@ function App() {
 
     setGenre(genre.results)
   }
-
   function handleSubmit(e){
     e.preventDefault()
 
     getUserSearch(searchRef.current.value)
 
     searchRef.current.value = ''
+
+    navigate("/")
   }
 
 
@@ -136,7 +139,6 @@ function App() {
     }
 
   return (
-    <BrowserRouter>
       <div className="container">
         <Nav />
         <main>
@@ -147,7 +149,6 @@ function App() {
           </Routes>
         </main>
       </div>
-    </BrowserRouter>
   );
 }
 
