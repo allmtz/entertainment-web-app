@@ -9,6 +9,7 @@ export const Carousel = ( { genre, genreMovies, getInfo, favorite, isFavorite } 
               genreMovies.map( item =>
                 <CarouselCard 
                   key={item.id} 
+                  movie={item}
                   movieID={item.id}
                   getInfo={getInfo}
                   category={ item.media_type ? item.media_type === 'movie' ? "Movie" : "TV Show" : "Movie"} 

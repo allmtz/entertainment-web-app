@@ -2,7 +2,7 @@ import {displayPlay} from "../App"
 import {hidePlay} from "../App"
 import { Link } from "react-router-dom"
 
-export const ResultCard = ( { movieID, getInfo, category, title, releaseDate, thumbnailPath, favorite, isFavorite } ) => {
+export const ResultCard = ( { movie, movieID, getInfo, category, title, releaseDate, thumbnailPath, favorite, isFavorite } ) => {
     return(
         <div>
               <div className="result-thumbnail" onMouseEnter={displayPlay} onMouseLeave={hidePlay} style={{backgroundImage:`url(${thumbnailPath})`}}>
@@ -17,7 +17,7 @@ export const ResultCard = ( { movieID, getInfo, category, title, releaseDate, th
                     <button onClick={ () => getInfo(movieID) }>Play</button>
                   </Link>
               </div>
-                <button onClick={ () => favorite(movieID)} className={ isFavorite(movieID) ? "bookmark-btn favorite" : "bookmark-btn"}>
+                <button onClick={ () => favorite(movie)} className={ isFavorite(movie.id) ? "bookmark-btn favorite" : "bookmark-btn"}>
                   <img
                     className="bookmark"
                     src="/assets/icon-bookmark-empty.svg"

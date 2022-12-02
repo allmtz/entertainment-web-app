@@ -9,6 +9,7 @@ export const Results = ({ moviesToDisplay,getInfo, favorite, isFavorite}) => {
         {moviesToDisplay.map((movie) => (
           <ResultCard
             key={movie.id}
+            movie={movie}
             movieID={movie.id}
             getInfo={getInfo}
             category={"Movie"}
