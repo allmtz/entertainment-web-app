@@ -43,7 +43,17 @@ function App() {
   const [ drama, setDrama ] = useState([])
 
   const [ focusedMovie, setFocusedMovie ] = useState([])
-  const [ favorites, setFavorites ] = useState([ ])
+  
+  const [ favorites, setFavorites ] = useState( () => {
+    const localFavorites = JSON.parse( localStorage.getItem("localFavorites") )
+
+    if( localFavorites && localFavorites!== null){
+      return localFavorites
+    }
+    else{
+      return []
+    }
+  })
 
   useEffect( () => { 
     getTrending()
@@ -55,6 +65,13 @@ function App() {
     getGenre(10749,setRomance)
     getGenre(18,setDrama)
   },[])
+
+  useEffect( () => {
+    const favsToStore = JSON.stringify(favorites)
+
+    localStorage.setItem("localFavorites", favsToStore)
+
+  },[favorites])
 
   // takes a genre code then sets state for that genre
   async function getGenre(genreCode,setGenre){
