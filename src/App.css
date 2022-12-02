@@ -191,35 +191,22 @@ form button:hover{
   padding-left: .5rem;
 }
 
-
-.bookmark-container,
-.rating {
+.bookmark-btn{
   padding: 0.4rem 0.7rem 0.4rem 0.7rem;
   border-radius: 20px;
   background-color: #3c45558f;
 }
 
-.bookmark-container:hover {
-  background-color: white;
+.bookmark-btn:hover {
+  background-color: var(--hl);
   cursor: pointer;
 }
 
-.bookmark-container {
+.bookmark-btn {
   position: absolute;
   right: 0.5rem;
   top: 0.5rem;
-}
-
-/* .bookmark{
-  TODO
-  figure out bookmark hover effect
-} */
-
-.rating {
-  position: absolute;
-  right: 1rem;
-  bottom: 1rem;
-  font-weight: 100;
+  border: none;
 }
 
 .movie-info {
@@ -324,4 +311,8 @@ form button:hover{
 
 .focused-overview{
   max-width: 550px;
+}
+
+.favorite{
+  background-color: var(--hl);
 }

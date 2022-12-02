@@ -43,6 +43,7 @@ function App() {
   const [ drama, setDrama ] = useState([])
 
   const [ focusedMovie, setFocusedMovie ] = useState([])
+  const [ favorites, setFavorites ] = useState([ ])
 
   useEffect( () => { 
     getTrending()
@@ -139,14 +140,41 @@ function App() {
       setFocusedMovie(movie)
     }
 
+  // adds or removes movies from favorites
+  const favorite = (movieID) => {
+    const index = favorites.indexOf(movieID)
+    let newFavs
+
+    if(index === -1){
+      newFavs = [...favorites]
+      newFavs.push(movieID)
+
+      setFavorites(newFavs)
+    }
+    else{
+      newFavs = favorites.filter( fav => fav !== movieID)
+      setFavorites(newFavs)
+    }
+  }
+
+  // checks to see if a movie is favorited. This is used to decide bookmark style
+  const isFavorite = (movieID) => {
+    const index = favorites.indexOf(movieID)
+
+    if( index === -1){
+      return false
+    }
+    return true
+  }
+
   return (
       <div className="container">
         <Nav />
         <main>
           <Searchbar handleSubmit={handleSubmit} searchRef={searchRef} />
           <Routes>
-            <Route path="/" element={ <Home trending={trending} getInfo={getInfo} action={action} western={western} comedy={comedy} animation={animation} romance={romance} drama={drama} fantasy={fantasy} /> } />
-            <Route path="/search/:movieName" element={<Results moviesToDisplay={moviesToDisplay} getInfo={getInfo} /> } />
+            <Route path="/" element={ <Home trending={trending} getInfo={getInfo} action={action} western={western} comedy={comedy} animation={animation} romance={romance} drama={drama} fantasy={fantasy} favorite={favorite} isFavorite={isFavorite} /> } />
+            <Route path="/search/:movieName" element={<Results moviesToDisplay={moviesToDisplay} getInfo={getInfo} favorite={favorite} isFavorite={isFavorite} /> } />
             <Route path="/info/:movieID" element={ <MovieInfo movie={focusedMovie} /> } />
           </Routes>
         </main>

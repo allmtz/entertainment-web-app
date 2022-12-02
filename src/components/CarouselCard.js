@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import {displayPlay} from "../App"
 import {hidePlay} from "../App"
 
-export const CarouselCard = ( { movieID, getInfo, category, title, releaseDate, thumbnailPath } ) =>
+export const CarouselCard = ( { movieID, getInfo, category, title, releaseDate, thumbnailPath, favorite, isFavorite} ) =>
 {
     return(
         <div className="carousel-card" onMouseEnter={displayPlay} onMouseLeave={hidePlay} style={{backgroundImage:`url(${thumbnailPath})`}}>
@@ -18,13 +18,13 @@ export const CarouselCard = ( { movieID, getInfo, category, title, releaseDate, 
                   </Link>
               </div>
 
-              <div className="bookmark-container">
+              <button onClick={ () => favorite(movieID)} className={ isFavorite(movieID) ? "bookmark-btn favorite" : "bookmark-btn"}>
                 <img
                   className="bookmark"
                   src="/assets/icon-bookmark-empty.svg"
                   alt="Bookmark"
                 />
-              </div>
+              </button>
               <div className="movie-info">
                 <div className="row">
                   <p>{releaseDate}</p>

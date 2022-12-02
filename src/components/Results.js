@@ -1,6 +1,6 @@
 import { ResultCard } from "./ResultCard";
 
-export const Results = ({ moviesToDisplay,getInfo }) => {
+export const Results = ({ moviesToDisplay,getInfo, favorite, isFavorite}) => {
   return (
     <section className="results">
       <h2>{moviesToDisplay.length} Results</h2>
@@ -19,6 +19,8 @@ export const Results = ({ moviesToDisplay,getInfo }) => {
                 : movie.release_date.slice(0, 4)
             }
             thumbnailPath={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+            favorite={favorite}
+            isFavorite={isFavorite}
           />
         ))}
       </div>
