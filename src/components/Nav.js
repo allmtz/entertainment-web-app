@@ -13,7 +13,9 @@ export const Nav = ( ) => {
           <img className="site-logo" src="/assets/logo.svg" alt="site logo" />
         </Link>
         <ul>
-          <li><HomeIcon /></li>
+          <Link to="/">
+            <li><HomeIcon /></li>
+          </Link>
           <li><MovieIcon /></li>
           <li><TvIcon /></li>
           <Link to="/bookmarks">
