@@ -51,7 +51,7 @@ function App() {
       return localFavorites
     }
     else{
-      return {}
+      return []
     }
   })
 
@@ -159,25 +159,26 @@ function App() {
 
   // adds or removes movies from favorites
   const favorite = (movie) => {
-    let newFavs = {...favorites}
+    const inFavs = favorites.some(fav => fav.id === movie.id)
+    let newFavs
 
-    if(!favorites[movie.id]){
-      newFavs[movie.id] = movie
-
-      setFavorites(newFavs)
+    if(!inFavs){
+      newFavs = [...favorites]
+        newFavs.push(movie)
+  
+        setFavorites(newFavs)
     }
     else{
-      delete newFavs[movie.id]
+         newFavs = favorites.filter( fav => fav.id !== movie.id)
+  
       setFavorites(newFavs)
     }
   }
 
   // checks to see if a movie is favorited. This is used to decide bookmark style
-  const isFavorite = (movieID) => {
-    if( favorites[movieID] ){
-      return true
-    }
-    return false
+  const isFavorite = (movie) => {
+    const inFavorites = favorites.some( fav => fav.id === movie.id)
+    return inFavorites
   }
 
   return (

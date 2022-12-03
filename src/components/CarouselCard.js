@@ -18,7 +18,7 @@ export const CarouselCard = ( { movie, movieID, getInfo, category, title, releas
                   </Link>
               </div>
 
-              <button onClick={ () => favorite(movie)} className={ isFavorite(movie.id) ? "bookmark-btn favorite" : "bookmark-btn"}>
+              <button onClick={ () => favorite(movie)} className={ isFavorite(movie) ? "bookmark-btn favorite" : "bookmark-btn"}>
                 <img
                   className="bookmark"
                   src="/assets/icon-bookmark-empty.svg"

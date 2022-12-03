@@ -17,7 +17,7 @@ export const ResultCard = ( { movie, movieID, getInfo, category, title, releaseD
                     <button onClick={ () => getInfo(movieID) }>Play</button>
                   </Link>
               </div>
-                <button onClick={ () => favorite(movie)} className={ isFavorite(movie.id) ? "bookmark-btn favorite" : "bookmark-btn"}>
+                <button onClick={ () => favorite(movie)} className={ isFavorite(movie) ? "bookmark-btn favorite" : "bookmark-btn"}>
                   <img
                     className="bookmark"
                     src="/assets/icon-bookmark-empty.svg"
