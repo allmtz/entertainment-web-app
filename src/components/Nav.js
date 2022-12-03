@@ -16,7 +16,9 @@ export const Nav = ( ) => {
           <li><HomeIcon /></li>
           <li><MovieIcon /></li>
           <li><TvIcon /></li>
-          <li><BookmarkIconNav /></li>
+          <Link to="/bookmarks">
+            <li><BookmarkIconNav /></li>
+          </Link>
         </ul>
 
         <img className="avatar" src="/assets/image-avatar.png" alt="avatar" />

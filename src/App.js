@@ -190,6 +190,7 @@ function App() {
             <Route path="/" element={ <Home trending={trending} getInfo={getInfo} action={action} western={western} comedy={comedy} animation={animation} romance={romance} drama={drama} fantasy={fantasy} favorite={favorite} isFavorite={isFavorite} /> } />
             <Route path="/search/:movieName" element={<Results moviesToDisplay={moviesToDisplay} getInfo={getInfo} favorite={favorite} isFavorite={isFavorite} /> } />
             <Route path="/info/:movieID" element={ <MovieInfo movie={focusedMovie} /> } />
+            <Route path="/bookmarks" element={<Results moviesToDisplay={favorites} getInfo={getInfo} favorite={favorite} isFavorite={isFavorite} /> } />
           </Routes>
         </main>
       </div>
