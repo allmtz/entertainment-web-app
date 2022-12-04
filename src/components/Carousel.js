@@ -1,6 +1,6 @@
 import { CarouselCard } from "./CarouselCard"
 
-export const Carousel = ( { genre, genreMovies, getInfo, favorite, isFavorite } ) => {
+export const Carousel = ( { genre, genreMovies, getInfo, favorite, isFavorite, mediaType } ) => {
     return(
         <section className="carousel-wrapper">
           <h2>{genre}</h2>
@@ -12,12 +12,10 @@ export const Carousel = ( { genre, genreMovies, getInfo, favorite, isFavorite } 
                   movie={item}
                   movieID={item.id}
                   getInfo={getInfo}
-                  category={ item.media_type ? item.media_type === 'movie' ? "Movie" : "TV Show" : "Movie"} 
-                  title={ item.media_type ? item.media_type === 'movie' ? item.title : item.name : item.title} 
-                  releaseDate= {item.release_date === undefined ? "N/A" : item.release_date.slice( 0,4 )} 
                   thumbnailPath={`https://image.tmdb.org/t/p/w300${item.poster_path}`} 
                   favorite={favorite}
                   isFavorite={isFavorite}
+                  mediaType={mediaType}
                 />
               )
             }

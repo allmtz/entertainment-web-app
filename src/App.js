@@ -6,6 +6,7 @@ import { Searchbar } from "./components/Searchbar";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { MovieInfo } from "./pages/MovieInfo";
+import { Tv } from "./pages/Tv";
 // react
 import { useState } from "react";
 import { useRef } from "react";
@@ -42,6 +43,15 @@ function App() {
   const [ romance, setRomance ] = useState([])
   const [ drama, setDrama ] = useState([])
 
+  // used when fetching TV categories
+  const [ trendingTV, setTrendingTV ] = useState([])
+  const [ actionTV, setActionTV ] = useState([])
+  const [ comedyTV, setComedyTV ] = useState([])
+  const [ westernTV, setWesternTV ] = useState([])
+  const [ animationTV, setAnimationTV ] = useState([])
+  const [ romanceTV, setRomanceTV ] = useState([])
+  const [ dramaTV, setDramaTV ] = useState([])
+
   const [ focusedMovie, setFocusedMovie ] = useState([])
   
   const [ favorites, setFavorites ] = useState( () => {
@@ -56,14 +66,23 @@ function App() {
   })
 
   useEffect( () => { 
-    getTrending()
-    getGenre(36,setAction)
-    getGenre(35,setComedy)
-    getGenre(37,setWestern)
-    getGenre(14,setFantasy)
-    getGenre(16,setAnimation)
-    getGenre(10749,setRomance)
-    getGenre(18,setDrama)
+    getTrending("movie",setTrending)
+    getGenre("movie",36,setAction)
+    getGenre("movie",35,setComedy)
+    getGenre("movie",37,setWestern)
+    getGenre("movie",14,setFantasy)
+    getGenre("movie",16,setAnimation)
+    getGenre("movie",10749,setRomance)
+    getGenre("movie",18,setDrama)
+
+    getTrending("tv",setTrendingTV)
+    getGenre("tv",36,setActionTV)
+    getGenre("tv",35,setComedyTV)
+    getGenre("tv",37,setWesternTV)
+    getGenre("tv",16,setAnimationTV)
+    getGenre("tv",10749,setRomanceTV)
+    getGenre("tv",18,setDramaTV)
+
   },[])
 
   useEffect( () => {
@@ -74,7 +93,7 @@ function App() {
   },[favorites])
 
   // takes a genre code then sets state for that genre
-  async function getGenre(genreCode,setGenre){
+  async function getGenre(mediaType,genreCode,setGenre){
     //Genre codes
     //     MOVIE
     // Action          28
@@ -97,11 +116,20 @@ function App() {
     // War             10752
     // Western         37
     const response = await fetch(
-      `https://api.themoviedb.org/3/discover/movie?with_genres=${genreCode}&api_key=${API_KEY}`
+      `https://api.themoviedb.org/3/discover/${mediaType}?with_genres=${genreCode}&api_key=${API_KEY}`
     );
     const genre = await response.json();
 
-    setGenre(genre.results)
+    //filter out movies missing either an overview or backdrop
+    const filteredResults =  genre.results.filter(movie => {
+      if(movie.overview === "" || movie.poster_path == null){
+        return false
+      }
+      return true
+
+    })
+
+    setGenre(filteredResults)
   }
   function handleSubmit(e){
     e.preventDefault()
@@ -138,19 +166,19 @@ function App() {
 
   }
 
-  async function getTrending(){
+  async function getTrending(mediaType, setMediaType){
     const response = await fetch(
-      `https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}`
+      `https://api.themoviedb.org/3/trending/${mediaType}/day?api_key=${API_KEY}`
     );
     const nowTrending = await response.json();
 
-    setTrending(nowTrending.results)
+    setMediaType(nowTrending.results)
   }
 
     //used to get information on a user clicked movie 
-    async function getInfo(movieID){
+    async function getInfo(movieID,mediaType){
       const response = await fetch(
-        `https://api.themoviedb.org/3//movie/${movieID}?&api_key=${API_KEY}`
+        `https://api.themoviedb.org/3//${mediaType}/${movieID}?&api_key=${API_KEY}`
       );
       const movie = await response.json();
     
@@ -187,10 +215,11 @@ function App() {
         <main>
           <Searchbar handleSubmit={handleSubmit} searchRef={searchRef} />
           <Routes>
-            <Route path="/" element={ <Home trending={trending} getInfo={getInfo} action={action} western={western} comedy={comedy} animation={animation} romance={romance} drama={drama} fantasy={fantasy} favorite={favorite} isFavorite={isFavorite} /> } />
+            <Route path="/" element={ <Home trending={trending} getInfo={getInfo} action={action} western={western} comedy={comedy} animation={animation} romance={romance} drama={drama} fantasy={fantasy} favorite={favorite} isFavorite={isFavorite} mediaType="movie" /> } />
             <Route path="/search/:movieName" element={<Results moviesToDisplay={moviesToDisplay} getInfo={getInfo} favorite={favorite} isFavorite={isFavorite} /> } />
             <Route path="/info/:movieID" element={ <MovieInfo movie={focusedMovie} /> } />
             <Route path="/bookmarks" element={<Results moviesToDisplay={favorites} getInfo={getInfo} favorite={favorite} isFavorite={isFavorite} /> } />
+            <Route path="/tv" element={ <Tv trendingTV={trendingTV} getInfo={getInfo} actionTV={actionTV} westernTV={westernTV} comedyTV={comedyTV} animationTV={animationTV} romanceTV={romanceTV} dramaTV={dramaTV} favorite={favorite} isFavorite={isFavorite} /> } />
           </Routes>
         </main>
       </div>

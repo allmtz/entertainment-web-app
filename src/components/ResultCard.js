@@ -2,19 +2,19 @@ import {displayPlay} from "../App"
 import {hidePlay} from "../App"
 import { Link } from "react-router-dom"
 
-export const ResultCard = ( { movie, movieID, getInfo, category, title, releaseDate, thumbnailPath, favorite, isFavorite } ) => {
+export const ResultCard = ( { movie, movieID, getInfo, thumbnailPath, favorite, isFavorite } ) => {
     return(
         <div>
               <div className="result-thumbnail" onMouseEnter={displayPlay} onMouseLeave={hidePlay} style={{backgroundImage:`url(${thumbnailPath})`}}>
               <div className="play-container">
                  <Link className="row"  to={`/info/${movieID}`}>
-                    <button onClick={ () => getInfo(movieID) } className="play-btn">
+                    <button onClick={ () => getInfo(movieID,movie.title ? "movie" : "tv" ) } className="play-btn">
                     <img
                       src="/assets/icon-play.svg"
                       alt="Play button"
                     />
                     </button>
-                    <button onClick={ () => getInfo(movieID) }>Play</button>
+                    <button onClick={ () => getInfo(movieID,movie.title ? "movie" : "tv" ) }>Play</button>
                   </Link>
               </div>
                 <button onClick={ () => favorite(movie)} className={ isFavorite(movie) ? "bookmark-btn favorite" : "bookmark-btn"}>
@@ -27,12 +27,21 @@ export const ResultCard = ( { movie, movieID, getInfo, category, title, releaseD
               </div>
               <div className="result-movie-info">
                 <div className="row">
-                  <p>{releaseDate}</p>
+                  <p>
+                    {movie.release_date && movie.release_date.slice(0,4)}
+                    {movie.first_air_date && movie.first_air_date.slice(0,4)}
+                  </p>
                   <p>•</p>
-                  <img src="/assets/icon-category-movie.svg" alt="" />
-                  <p>{category}</p>
+                  <img src={movie.title ? "/assets/icon-category-movie.svg" : "/assets/icon-category-tv.svg" } alt="" />
+                  <p>
+                    {movie.title && "Movie"}
+                    {movie.name && "TV Show"}
+                  </p>
                 </div>
-                <h1>{title}</h1>
+                <h1>
+                  {movie.title && movie.title}
+                  {movie.name && movie.name}
+                </h1>
               </div>
             </div>
     )

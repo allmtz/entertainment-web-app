@@ -1,7 +1,10 @@
 export const MovieInfo = ({ movie }) => {
     return(
         <div className="focused-movie">
+            {/* title is a movie name is a tv show  */}
             { movie.title && <h1>{movie.title}</h1>}
+            { movie.name && <h1>{movie.name}</h1>}
+            
             { movie.tagline && <p>{movie.tagline}</p> }
             { movie.release_date && <p>{movie.release_date.slice(0,4)}</p>}
            <div className="focused-backdrop">

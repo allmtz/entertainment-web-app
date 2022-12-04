@@ -17,7 +17,9 @@ export const Nav = ( ) => {
             <li><HomeIcon /></li>
           </Link>
           <li><MovieIcon /></li>
-          <li><TvIcon /></li>
+          <Link to="/tv">
+            <li><TvIcon /></li>
+          </Link>
           <Link to="/bookmarks">
             <li><BookmarkIconNav /></li>
           </Link>
