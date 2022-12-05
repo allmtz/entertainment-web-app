@@ -272,6 +272,11 @@ form button:hover{
         justify-content: center;
     }
 
+    .results-container{
+      width: 1420px;
+      grid-template-columns: repeat( auto-fit, 200px );
+    }
+
     nav{
         flex-direction: column;
         justify-content: space-between;
