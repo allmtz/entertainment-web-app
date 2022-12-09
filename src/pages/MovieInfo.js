@@ -18,11 +18,11 @@ export const MovieInfo = ({ movie }) => {
                 { movie.vote_average && <p className="focused-average">{ starsOutOf5 }</p>}
                 {movie.vote_average && 
                     <div className="rating-container" style={{width:`${width}px`}} >
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
+                        <span className="fa fa-star checked"></span>
+                        <span className="fa fa-star checked"></span>
+                        <span className="fa fa-star checked"></span>
+                        <span className="fa fa-star checked"></span>
+                        <span className="fa fa-star checked"></span>
                     </div>
                 }
             </div>
