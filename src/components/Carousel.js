@@ -2,7 +2,7 @@ import { CarouselCard } from "./CarouselCard"
 
 export const Carousel = ( { genre, genreMovies, getInfo, favorite, isFavorite, mediaType } ) => {
     return(
-        <section className="carousel-wrapper">
+        <section className="carousel-section">
           <h2>{genre}</h2>
           <div className="carousel">
             {

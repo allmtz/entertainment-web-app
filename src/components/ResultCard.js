@@ -5,26 +5,26 @@ import { Link } from "react-router-dom"
 export const ResultCard = ( { movie, movieID, getInfo, thumbnailPath, favorite, isFavorite } ) => {
     return(
         <div>
-              <div className="result-thumbnail" onMouseEnter={displayPlay} onMouseLeave={hidePlay} style={{backgroundImage:`url(${thumbnailPath})`}}>
-              <div className="play-container">
-                 <Link className="row"  to={`/info/${movieID}`}>
-                    <button onClick={ () => getInfo(movieID,movie.title ? "movie" : "tv" ) } className="play-btn">
+          <div className="result-thumbnail" onMouseEnter={displayPlay} onMouseLeave={hidePlay} style={{backgroundImage:`url(${thumbnailPath})`}}>
+              <Link className="play-container" to={`/info/${movieID}`} onClick={ () => getInfo(movieID,movie.title ? "movie" : "tv" ) }>
+                <div className="row play-links"  >
+                    <button className="play-btn">
                     <img
                       src="/assets/icon-play.svg"
                       alt="Play button"
                     />
                     </button>
-                    <button onClick={ () => getInfo(movieID,movie.title ? "movie" : "tv" ) }>Play</button>
-                  </Link>
-              </div>
-                <button onClick={ () => favorite(movie)} className={ isFavorite(movie) ? "bookmark-btn favorite" : "bookmark-btn"}>
-                  <img
-                    className="bookmark"
-                    src="/assets/icon-bookmark-empty.svg"
-                    alt="Bookmark"
-                  />
-                </button>
-              </div>
+                    <button >Play</button>
+                  </div>
+              </Link>
+              <button onClick={ () => favorite(movie)} className={ isFavorite(movie) ? "bookmark-btn favorite" : "bookmark-btn"}>
+                <img
+                  className="bookmark"
+                  src="/assets/icon-bookmark-empty.svg"
+                  alt="Bookmark"
+                />
+              </button>
+          </div>
               <div className="result-movie-info">
                 <div className="row">
                   <p>
