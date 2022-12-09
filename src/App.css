@@ -58,10 +58,6 @@ svg:hover {
   display: flex;
 }
 
-.container{
-  margin-bottom: 6rem;
-}
-
 .avatar {
   width: 40px;
   border: 2px solid white;
@@ -310,6 +306,10 @@ form button:hover{
   align-self: center;
 }
 
+.focused-average{
+  font-size: 2rem;
+}
+
 .focused-votes{
   gap: 1rem;
 }
@@ -320,4 +320,31 @@ form button:hover{
 
 .favorite{
   background-color: var(--hl);
+}
+
+.checked{
+  color: orange;
+}
+
+.rating-container{
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+footer{
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  gap: 10px; 
+  padding: 2rem 1rem;
+}
+
+footer p {
+  color: #5A698F;
+  font-size: .9rem;
+}
+
+.TMDBLogo{
+  height: 15px;
 }
