@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 
 export const ResultCard = ( { movie, movieID, getInfo, thumbnailPath, favorite, isFavorite } ) => {
     return(
-        <div>
+        <div className="result-wrapper">
           <div className="result-thumbnail" onMouseEnter={displayPlay} onMouseLeave={hidePlay} style={{backgroundImage:`url(${thumbnailPath})`}}>
               <Link className="play-container" to={`/info/${movieID}`} onClick={ () => getInfo(movieID,movie.title ? "movie" : "tv" ) }>
                 <div className="row play-links"  >

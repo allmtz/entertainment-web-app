@@ -17,8 +17,10 @@ const API_KEY = "2fa9b8c3457255630ef48d6faeab6c29";
 
 
 export const displayPlay = (e) =>{
-  if(e.target.querySelector('.play-container')){
-    e.target.querySelector('.play-container').style.scale = 1
+  const wrapper = e.target.closest(".carousel-wrapper") || e.target.closest(".result-wrapper")
+
+  if(wrapper){
+    wrapper.querySelector('.play-container').style.scale = 1
   }
 }
 
@@ -162,7 +164,7 @@ function App() {
     })
 
     setMoviesToDisplay(filteredResults)
-    console.log(moviesToDisplay)
+    // console.log(moviesToDisplay)
 
   }
 
