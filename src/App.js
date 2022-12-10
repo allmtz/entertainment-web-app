@@ -135,6 +135,7 @@ function App() {
   }
   function handleSubmit(e){
     e.preventDefault()
+    if(searchRef.current.value === "" ) return
 
     getUserSearch(searchRef.current.value)
 
