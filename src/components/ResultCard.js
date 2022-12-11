@@ -8,13 +8,12 @@ export const ResultCard = ( { movie, movieID, getInfo, thumbnailPath, favorite, 
           <div className="result-thumbnail" onMouseEnter={displayPlay} onMouseLeave={hidePlay} style={{backgroundImage:`url(${thumbnailPath})`}}>
               <Link className="play-container" to={`/info/${movieID}`} onClick={ () => getInfo(movieID,movie.title ? "movie" : "tv" ) }>
                 <div className="row play-links"  >
-                    <button className="play-btn">
                     <img
+                      className="play-btn"
                       src="/assets/icon-play.svg"
                       alt="Play button"
                     />
-                    </button>
-                    <button >Play</button>
+                    <p>Play</p>
                   </div>
               </Link>
               <button onClick={ () => favorite(movie)} className={ isFavorite(movie) ? "bookmark-btn favorite" : "bookmark-btn"}>

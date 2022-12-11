@@ -9,13 +9,12 @@ export const CarouselCard = ( { movie, movieID, getInfo, thumbnailPath, favorite
         <div className="carousel-card"  style={{backgroundImage:`url(${thumbnailPath})`}}></div>
         <Link to={`/info/${movieID}`} className="play-container " onClick={ () => getInfo(movieID,mediaType) }>
           <div className="row play-links">
-              <button className="play-btn">
-              <img
+              <img 
+                className="play-btn"
                 src="/assets/icon-play.svg"
                 alt="Play button"
               />
-              </button>
-              <button>Play</button>
+              <p>Play</p>
             </div>
         </Link>
         <button onClick={ () => favorite(movie)} className={ isFavorite(movie) ? "bookmark-btn favorite" : "bookmark-btn"}>
