@@ -1,6 +1,6 @@
 import { ResultCard } from "./ResultCard";
 
-export const Results = ({ moviesToDisplay,getInfo, favorite, isFavorite}) => {
+export const Results = ({ moviesToDisplay, getInfo, favorite, isFavorite }) => {
   return (
     <section className="results">
       <h2>{moviesToDisplay.length} Results</h2>
